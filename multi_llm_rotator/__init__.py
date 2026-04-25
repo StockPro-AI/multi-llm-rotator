@@ -5,7 +5,12 @@ __author__ = "StockPro-AI"
 
 from .rotator import LLMRotator
 from .accounts import AccountManager
-from .service import get_llm_service
+from .service import (
+    get_llm_service,
+    get_gemini_service,
+    get_claude_service,
+    get_openai_service,
+)
 from .providers.gemini import GeminiProvider
 from .providers.claude import ClaudeProvider
 from .providers.openai import OpenAIProvider
@@ -14,6 +19,9 @@ __all__ = [
     "LLMRotator",
     "AccountManager",
     "get_llm_service",
+    "get_gemini_service",
+    "get_claude_service",
+    "get_openai_service",
     "GeminiProvider",
     "ClaudeProvider",
     "OpenAIProvider",
