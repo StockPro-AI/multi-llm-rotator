@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "multi-llm-rotator"
+version = "1.0.0"
+description = "Universal multi-account rotation for Gemini, Claude & ChatGPT"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+  { name = "StockPro-AI" },
+]
+keywords = [
+  "llm", "gemini", "claude", "openai", "chatgpt", "rotation",
+  "rate-limit", "multi-account", "ai",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# All provider SDKs are optional — install only what you need.
+dependencies = []
+
+[project.optional-dependencies]
+gemini = ["google-generativeai>=0.8"]
+claude = ["anthropic>=0.40"]
+openai = ["openai>=1.0"]
+all = [
+  "google-generativeai>=0.8",
+  "anthropic>=0.40",
+  "openai>=1.0",
+]
+
+[project.scripts]
+mlr = "multi_llm_rotator.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/StockPro-AI/multi-llm-rotator"
+Repository = "https://github.com/StockPro-AI/multi-llm-rotator"
+
+[tool.hatch.build.targets.wheel]
+packages = ["multi_llm_rotator"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
